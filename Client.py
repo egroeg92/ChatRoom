@@ -32,7 +32,7 @@ def writer(clientsocket):
 
 if __name__ == '__main__':
  
-    host = 'localhost'
+    host = gethostbyname(gethostname())
     port = 9999
 
     addr = (host, port)
