@@ -1,3 +1,5 @@
+Developed By George Macrae
+
 Simple Chat room using Python
 
 Uses threading and socket programming
@@ -7,4 +9,5 @@ then run as many clients as desired
 
 
 TODO:
-Exiting functionality doesn't work yet
+
+Catch socket errors

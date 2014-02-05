@@ -18,16 +18,16 @@ def handler(clientsocket, clientaddr):
     while 1:
 
         data = clientsocket.recv(1024)
-        print clientaddr, data
-        msg = str(clientaddr) + '_' + data
-        for x in clients:
-           	x.send(msg)
-        
-        if not data:
-            break    
+        if data == 'Exit':
+            clientsocket.send('Exit')
+            clients.remove(clientsocket)
+            break
 
-    print "exiting"
-    sys.exit()
+        for x in clients:
+            if x != clientsocket:
+                x.send(data)
+          
+
  
 if __name__ == "__main__":
  
@@ -41,7 +41,8 @@ if __name__ == "__main__":
  
     serversocket.listen(2)
  
-
+    print host
+    
     global clients
     clients = []
     while 1:
